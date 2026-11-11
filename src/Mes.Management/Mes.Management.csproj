@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\EtoApp.props" />
+  <PropertyGroup>
+    <AssemblyName>SpecManagment</AssemblyName>
+    <RootNamespace>Mes.Management</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mes.Shared.UI\Mes.Shared.UI.csproj" />
+  </ItemGroup>
+</Project>

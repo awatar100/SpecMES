@@ -1,0 +1,23 @@
+<Project>
+  <!-- Wspolna konfiguracja aplikacji Eto.Forms: Windows = WPF, Linux = GTK.
+       Wymuszenie platformy: dotnet publish -p:MesPlatform=Gtk -r linux-x64 -->
+  <PropertyGroup>
+    <MesPlatform Condition="'$(MesPlatform)'=='' and $([MSBuild]::IsOSPlatform('Windows'))">Wpf</MesPlatform>
+    <MesPlatform Condition="'$(MesPlatform)'==''">Gtk</MesPlatform>
+    <TargetFramework Condition="'$(MesPlatform)'=='Wpf'">net8.0-windows</TargetFramework>
+    <TargetFramework Condition="'$(MesPlatform)'=='Gtk'">net8.0</TargetFramework>
+    <UseWPF Condition="'$(MesPlatform)'=='Wpf'">true</UseWPF>
+    <OutputType Condition="'$(MesPlatform)'=='Wpf'">WinExe</OutputType>
+    <OutputType Condition="'$(MesPlatform)'=='Gtk'">Exe</OutputType>
+    <BaseIntermediateOutputPath>obj\$(MesPlatform)\</BaseIntermediateOutputPath>
+    <OutputPath>bin\$(MesPlatform)\$(Configuration)\</OutputPath>
+    <DefaultItemExcludes>$(DefaultItemExcludes);obj\**;bin\**</DefaultItemExcludes>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ApplicationIcon>$(MSBuildThisFileDirectory)assets\app.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Using Include="System.IO" />
+    <PackageReference Include="Eto.Platform.Wpf" Version="2.8.3" Condition="'$(MesPlatform)'=='Wpf'" />
+    <PackageReference Include="Eto.Platform.Gtk" Version="2.8.3" Condition="'$(MesPlatform)'=='Gtk'" />
+  </ItemGroup>
+</Project>

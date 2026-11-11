@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="8.0.5" />
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="ClosedXML" Version="0.102.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mes.Core\Mes.Core.csproj" />
+    <EmbeddedResource Include="..\..\db\001_init.sql" LogicalName="001_init.sql" />
+  </ItemGroup>
+</Project>

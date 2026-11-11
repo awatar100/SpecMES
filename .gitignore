@@ -1,0 +1,32 @@
+# Build output
+bin/
+obj/
+publish/
+artifacts/
+TestResults/
+
+# IDE and user-specific files
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.swp
+
+# Credentials - never commit
+setup.ini
+setup-output/
+demo-accounts.txt
+*.env
+
+# Station runtime data
+logs/
+buffer/
+language.txt
+current.csv
+pomiar.cfg
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
